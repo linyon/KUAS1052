@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace ConsoleApplication1
 
             ShowStation(stations);
 
-            Console.ReadLine();
+            Console.WriteLine("按下任一鍵進行新增資料庫");
+            Console.ReadKey();
+            InsertStation(stations);
 
         }
 
@@ -86,6 +89,25 @@ namespace ConsoleApplication1
 
 
             });
+
+
+        }
+
+
+        public static void InsertStation(List<Station> stations)
+        {
+            Repository.DatabaseRepository db = new Repository.DatabaseRepository();
+
+
+            Console.WriteLine(string.Format("新增{0}筆監測站的資料開始", stations.Count));
+            stations.ForEach(x =>
+            {
+
+                db.CreateStation(x);
+
+
+            });
+            Console.WriteLine(string.Format("新增監測站的資料結束"));
 
 
         }
