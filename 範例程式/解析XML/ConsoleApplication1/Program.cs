@@ -11,15 +11,11 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-
-
             var stations = FindStations();
 
+            ShowStation(stations);
 
-
-
-
-
+            Console.ReadLine();
 
         }
 
@@ -76,6 +72,21 @@ namespace ConsoleApplication1
 
 
             return stations;
+
+        }
+
+
+        public static void ShowStation(List<Station> stations)
+        {
+
+            Console.WriteLine(string.Format("共收到{0}筆監測站的資料", stations.Count));
+            stations.ForEach(x =>
+            {
+                Console.WriteLine(string.Format("站點名稱：{0},地址:{1}", x.ObservatoryName,x.LocationAddress));
+
+
+            });
+
 
         }
     }
