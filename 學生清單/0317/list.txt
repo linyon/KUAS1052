@@ -21,8 +21,7 @@
 1103105305 廖華聖
 1103105310 林敬宗.txt
 1103105310_林敬宗.txt
-1103105312 蔡承翰.txt
-1103105312蔡承翰.txt
+1103105312 蔡承翰.txt https://github.com/TsaiC-H/Multimedia_Design.git
 1103105313 謝翔羽.txt https://github.com/yuduck/105-2
 1103105316李蕙瑄.txt
 1103105323 連育輝.txt
