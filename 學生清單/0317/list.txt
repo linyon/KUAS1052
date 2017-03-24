@@ -4,7 +4,7 @@
 1102105303 邱柏勳.txt https://github.com/gh26300/homework.git
 1102105304林穎稘.txt
 1102105307 謝炎璋.txt
-1102105316 詹英鴻.txt
+1102105316 詹英鴻.txt https://github.com/Harry-Zhan/KUAS-ASP.NET
 1102105317 潘彥君.txt
 1102105319 蘇世賢.txt https://github.com/shihsian/homework.git
 1102105333 謝承恩.txt https://github.com/sleepydog310/KUAS1052-1 
@@ -12,7 +12,7 @@
 1102105337 許聖弘.txt https://github.com/dazzlespot/work
 1102105338 楊玄華.txt https://github.com/PaulYang831027/Homework
 1102105341林逸盛.txt https://github.com/YiShenLin/Homework1.git
-1102105343 邱冠崴.txt
+1102105343 邱冠崴.txt https://github.com/zxc89079/homework
 1102105351 王得祐.txt https://github.com/d93511827/kuas105
 1102105355 葉晏菱.txt
 1102105356 陳宥均.txt https://github.com/yjcchen/KUAS
