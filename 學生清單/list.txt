@@ -1,20 +1,21 @@
-1102105102 簡彰頡.txt
+﻿1102105102 簡彰頡.txt
 1102105129 黃而旭.txt
 1102105301詹邵暐.txt
-1102105303 邱柏勳.txt
+1102105303 邱柏勳.txt https://github.com/gh26300/homework.git
 1102105304林穎稘.txt
 1102105307 謝炎璋.txt
 1102105316 詹英鴻.txt
 1102105317 潘彥君.txt
-1102105319 蘇世賢.txt
+1102105319 蘇世賢.txt https://github.com/shihsian/homework.git
 1102105333 謝承恩.txt https://github.com/sleepydog310/KUAS1052-1 
 1102105336張譯安.txt
+1102105337 許聖弘.txt https://github.com/dazzlespot/work
 1102105338 楊玄華.txt
-1102105341林逸盛.txt
+1102105341林逸盛.txt https://github.com/YiShenLin/Homework1.git
 1102105343 邱冠崴.txt
 1102105351 王得祐.txt https://github.com/d93511827/kuas105
 1102105355 葉晏菱.txt
-1102105356 陳宥均.txt
+1102105356 陳宥均.txt https://github.com/yjcchen/KUAS
 1103105301 黃靖瑋.txt
 1103105304 黃思賢.txt
 1103105305 廖華聖
@@ -28,24 +29,24 @@
 1103105325 劉俊瑋.txt
 1103105326張維哲.txt
 1103105327李偲瑋
-1103105329 蔡松霖.txt
+1103105329 蔡松霖.txt https://github.com/shootingstart123/KUAS201729
 1103105330 孫承榮.txt
 1103105331 許庭章.txt
 1103105336 林佑恩.txt https://github.com/linyon/work_0310
-1103105337 鄭義文.txt
+1103105337 鄭義文.txt https://github.com/shondiinhow/Homework0317
 1103105339 曾文輝.txt
 1103105341 陳政穎
 1103105342 姚呈政.txt
 1103105348  石承民.txt
 四子三丙 1103105315 張敬華
-四子三丙 1103105328 丁宣文
+四子三丙 1103105328 丁宣文 https://github.com/alanting850420/KUAS-HW/tree/master/XML%20TO%20JSON%20(C%23)
 四子三丙 1103105345 房志剛 https://github.com/abc873693/KUAS10502-HomeWork/tree/master/XML_JSON%20Parser
 四子三丙 1103105356 方建任
 四子三丙1103105307蔡宇杰.txt
-四子四丙 1102105302 吳宥駿.txt
+四子四丙 1102105302 吳宥駿.txt  https://github.com/James-YC/Homework
 四子四丙 1102105306 蔣政燁.txt  https://github.com/cathay2218/XML_Analyze_20170315
 四子四丙 1102105310 胡宇承.txt
-四子四丙 1102105311 張源亨.txt
+四子四丙 1102105311 張源亨.txt https://github.com/YHengChang/Json_analysis.git
 四子四丙 1102105355 葉晏菱.txt
-四子四丙 1102105357 高至寬.txt
+四子四丙 1102105357 高至寬.txt https://github.com/kuancla/Homework0317
 四子四乙1102105253楊子毅.txt
