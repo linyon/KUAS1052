@@ -9,4 +9,5 @@ D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\obj\Debug\ConsoleAppli
 D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
 D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\bin\Debug\App_Data\Water.ldf
+D:\GitHub\0324\範例程式\解析XML\ConsoleApplication1\bin\Debug\App_Data\Water.mdf
