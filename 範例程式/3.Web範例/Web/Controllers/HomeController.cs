@@ -8,7 +8,7 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             return View();
         }
@@ -17,14 +17,14 @@ namespace Web.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("Your application description page.");
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            return Json("","");
         }
     }
 }

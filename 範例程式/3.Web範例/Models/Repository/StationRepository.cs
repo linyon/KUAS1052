@@ -8,7 +8,8 @@ namespace YC.Repository
 {
     public class StationRepository
     {
-        private const string _connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Console\App_Data\WaterDB.mdf;Integrated Security=True";
+        private string _connectionString= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\WaterDB.mdf;Integrated Security=True";
+ 
 
 
         public void Create(List<Models.Station> stations)
@@ -23,7 +24,7 @@ namespace YC.Repository
                 command.CommandText = string.Format(@"
 INSERT        INTO    Station(ID, LocationAddress, ObservatoryName, LocationByTWD67, CreateTime)
 VALUES          (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}')
-", station.ID, station.LocationAddress, station.ObservatoryName, station.LocationByTWD67, station.CreateTime.ToString("yyyy/MM/dd"));
+", station.ID, station.LocationAddress, station.ObservatoryName.Replace("'","''"), station.LocationByTWD67, station.CreateTime.ToString("yyyy/MM/dd"));
 
                 command.ExecuteNonQuery();
             }
@@ -48,7 +49,7 @@ Select * from Station";
             {
                 Models.Station item = new Models.Station();
                 item.ID = reader["ID"].ToString();
-                item.LocationAddress= reader["LocationAddress"].ToString();
+                item.LocationAddress = reader["LocationAddress"].ToString();
                 item.ObservatoryName = reader["ObservatoryName"].ToString();
                 item.LocationByTWD67 = reader["LocationByTWD67"].ToString();
                 item.CreateTime = DateTime.Parse(reader["CreateTime"].ToString());
