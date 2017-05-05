@@ -8,3 +8,8 @@ D:\GitHub\0428\範例程式\3.Web範例\Models\bin\Debug\Models.pdb
 D:\GitHub\0428\範例程式\3.Web範例\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\GitHub\0428\範例程式\3.Web範例\Models\obj\Debug\Models.dll
 D:\GitHub\0428\範例程式\3.Web範例\Models\obj\Debug\Models.pdb
+D:\GitHub\0505\範例程式\3.Web範例\Models\bin\Debug\Models.dll
+D:\GitHub\0505\範例程式\3.Web範例\Models\bin\Debug\Models.pdb
+D:\GitHub\0505\範例程式\3.Web範例\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\GitHub\0505\範例程式\3.Web範例\Models\obj\Debug\Models.dll
+D:\GitHub\0505\範例程式\3.Web範例\Models\obj\Debug\Models.pdb
