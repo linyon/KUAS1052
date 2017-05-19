@@ -1,5 +1,0 @@
-C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Models\bin\Debug\Models.dll
-C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Models\bin\Debug\Models.pdb
-C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Models\obj\Debug\Models.dll
-C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Models\obj\Debug\Models.pdb
-C:\Users\user\Source\Repos\KUAS1052\範例程式\2.存取資料庫\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

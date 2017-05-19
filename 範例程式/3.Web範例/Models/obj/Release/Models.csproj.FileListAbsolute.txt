@@ -1,9 +1,0 @@
-D:\GitHub\0407\範例程式\3.Web範例\Models\bin\Release\Models.dll
-D:\GitHub\0407\範例程式\3.Web範例\Models\bin\Release\Models.pdb
-D:\GitHub\0407\範例程式\3.Web範例\Models\obj\Release\Models.csprojResolveAssemblyReference.cache
-D:\GitHub\0407\範例程式\3.Web範例\Models\obj\Release\Models.dll
-D:\GitHub\0407\範例程式\3.Web範例\Models\obj\Release\Models.pdb
-D:\GitHub\0428\範例程式\3.Web範例\Models\bin\Release\Models.dll
-D:\GitHub\0428\範例程式\3.Web範例\Models\bin\Release\Models.pdb
-D:\GitHub\0428\範例程式\3.Web範例\Models\obj\Release\Models.dll
-D:\GitHub\0428\範例程式\3.Web範例\Models\obj\Release\Models.pdb
