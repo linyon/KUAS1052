@@ -13,9 +13,12 @@ namespace YC.Models
         public string ObservatoryName { get; set; }
         public string LocationByTWD67 { get; set; }
         public DateTime CreateTime { get; set; }
+        public DateTime LastRecordTime { get; set; }
+        public double LastRecordWaterLevel { get; set; }
 
 
-        
+
+
 
 
     }

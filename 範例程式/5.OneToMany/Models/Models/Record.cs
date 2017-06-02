@@ -14,5 +14,7 @@ namespace YC.Models
         public double WaterLevel { get; set; }
         public DateTime RecordTime { get; set; }
         public DateTime CreateTime { get; set; }
+
+        public  Station Station { get; set; }
     }
 }

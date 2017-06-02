@@ -35,31 +35,29 @@ VALUES          (N'{0}',{1},N'{2}',N'{3}')
         }
 
 
-//        public List<Models.Station> FindAllStations()
-//        {
-//            var result = new List<Models.Station>();
-//            var connection = new System.Data.SqlClient.SqlConnection(_connectionString);
-//            connection.Open();
-//            var command = new System.Data.SqlClient.SqlCommand("", connection);
-//            command.CommandText = @"
-//Select * from Station";
-//            var reader = command.ExecuteReader();
-
-//            while (reader.Read())
-//            {
-//                Models.Station item = new Models.Station();
-//                item.ID = reader["ID"].ToString();
-//                item.LocationAddress = reader["LocationAddress"].ToString();
-//                item.ObservatoryName = reader["ObservatoryName"].ToString();
-//                item.LocationByTWD67 = reader["LocationByTWD67"].ToString();
-//                item.CreateTime = DateTime.Parse(reader["CreateTime"].ToString());
-//                result.Add(item);
-//            }
-//            connection.Close();
+        public bool IsExist(Models.Record record)
+        {
+            var id = record.StationID;
+            var datetime = record.RecordTime;
+            
+            var connection = new System.Data.SqlClient.SqlConnection();
+            connection.ConnectionString = _connectionString;
+            
+                var command = new System.Data.SqlClient.SqlCommand("", connection);
+            command.CommandText = string.Format(@"
+Select count(*) from Record
+where StationID='{0}' and RecordTime='{1}'
+", record.StationID, record.RecordTime.ToString("yyyy/MM/dd HH:mm"));
 
 
-//            return result;
-//        }
+            connection.Open();
+            int countResult = int.Parse(command.ExecuteScalar().ToString());
+            connection.Close();
+
+
+
+            return countResult > 0;
+        }
 
 
 

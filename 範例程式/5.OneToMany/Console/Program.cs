@@ -24,7 +24,7 @@ namespace YC
             setDBFilePath();
             createRecord();
 
-
+            Console.WriteLine("建立Record完成");
             Console.ReadKey();
         }
 
@@ -51,7 +51,19 @@ namespace YC
 
             db.Create(records);
 
+            Repository.StationRepository  stationDb = new Repository.StationRepository();
 
+            records.ForEach(x =>
+            {
+                var station = x.Station;
+                var list = new List<Station>();
+                list.Add(station);
+
+
+                stationDb.Create(new List<Station> { station });
+
+
+            });
 
         }
     }
