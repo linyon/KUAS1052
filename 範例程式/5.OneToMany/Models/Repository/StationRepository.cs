@@ -52,7 +52,26 @@ UPDATE [dbo].[Station]
             command.ExecuteNonQuery();
             connection.Close();
         }
+        public void Update(Models.Station station)
+        {
+            var connection = new System.Data.SqlClient.SqlConnection();
+            connection.ConnectionString = _connectionString;
+            connection.Open();
 
+
+            var command = new System.Data.SqlClient.SqlCommand("", connection);
+            command.CommandText = string.Format(@"
+UPDATE [dbo].[Station]
+   SET 
+       [LocationAddress]=N'{0}'
+      ,[ObservatoryName]=N'{1}'
+      ,[LocationByTWD67]=N'{2}'
+ WHERE [ID] = N'{3}'
+", station.LocationAddress, station.ObservatoryName, station.LocationByTWD67, station.ID);
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
 
         public List<Models.Station> FindAllStations()
         {
@@ -86,6 +105,45 @@ Select * from Station";
             }
             connection.Close();
 
+
+            return result;
+        }
+
+        public Models.Station FindByID(string id)
+        {
+            Models.Station result = null;
+            var connection = new System.Data.SqlClient.SqlConnection(_connectionString);
+            connection.Open();
+            var command = new System.Data.SqlClient.SqlCommand("", connection);
+            command.CommandText = string.Format(@"
+Select * from Station
+Where ID='{0}'",
+id);
+            var reader = command.ExecuteReader();
+            var list = new List<YC.Models.Station>();
+            while (reader.Read())
+            {
+                Models.Station item = new Models.Station();
+                item.ID = reader["ID"].ToString();
+                item.LocationAddress = reader["LocationAddress"].ToString();
+                item.ObservatoryName = reader["ObservatoryName"].ToString();
+                item.LocationByTWD67 = reader["LocationByTWD67"].ToString();
+                item.CreateTime = DateTime.Parse(reader["CreateTime"].ToString());
+
+                if (!string.IsNullOrEmpty(reader["LastRecordTime"].ToString()))
+                {
+                    item.LastRecordTime = DateTime.Parse(reader["LastRecordTime"].ToString());
+                }
+                if (!string.IsNullOrEmpty(reader["LastRecordWaterLevel"].ToString()))
+                {
+                    item.LastRecordWaterLevel = double.Parse(reader["LastRecordWaterLevel"].ToString());
+                }
+
+                list.Add(item);
+            }
+            connection.Close();
+            if (list.Count == 1)
+                result = list.Single();
 
             return result;
         }

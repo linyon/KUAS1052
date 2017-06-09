@@ -59,7 +59,37 @@ where StationID='{0}' and RecordTime='{1}'
             return countResult > 0;
         }
 
+        public List<Models.Record> FindByStationID(string stationID)
+        {
+            var result = new List<Models.Record>();
+            var connection = new System.Data.SqlClient.SqlConnection(_connectionString);
+            connection.Open();
+            var command = new System.Data.SqlClient.SqlCommand("", connection);
+            command.CommandText = string.Format(@"
+Select * from Record
+Where StationID='{0}'",
+stationID
+);
+            var reader = command.ExecuteReader();
 
+            while (reader.Read())
+            {
+                Models.Record item = new Models.Record();
+                item.ID = int.Parse(reader["ID"].ToString());
+                item.CreateTime = DateTime.Parse(reader["CreateTime"].ToString());
+                if (!string.IsNullOrEmpty(reader["WaterLevel"].ToString()))
+                {
+                    item.WaterLevel = double.Parse(reader["WaterLevel"].ToString());
+                }
+                if (!string.IsNullOrEmpty(reader["RecordTime"].ToString()))
+                {
+                    item.RecordTime = DateTime.Parse(reader["RecordTime"].ToString());
+                }
+                result.Add(item);
+            }
+            connection.Close();
+            return result;
+        }
 
     }
 }

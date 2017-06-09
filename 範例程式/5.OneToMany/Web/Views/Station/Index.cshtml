@@ -8,7 +8,7 @@
 
     //this.Model
 }
-<form class="form-inline" method="post" action="~/Station/Index">
+<form class="form-inline" method="get" action="~/Station/Index">
     <div class="form-group">
 
         <input type="text" class="form-control" placeholder="名稱"
@@ -26,7 +26,7 @@
     @for (int i = 0; i < Model.Count; i++)
     {
 
-        <a class="list-group-item">
+        <div class="list-group-item">
             <h4 class="list-group-item-heading">@Model[i].ObservatoryName</h4>
             <p class="list-group-item-text">@Model[i].LocationAddress</p>
             @if (Model[i].LastRecordTime == DateTime.MinValue)
@@ -35,12 +35,16 @@
             }
             else
             {
-                <span class="label label-primary">水位：@Model[i].LastRecordWaterLevel</span>
+                <span class="label label-success">水位：@Model[i].LastRecordWaterLevel</span>
 
                 <small>最後更新時間：@Model[i].LastRecordTime.ToString("yyyy/MM/dd HH:mm")</small>
             }
-
-        </a>
+            <hr />
+            <p>
+                <a href="/Station/Update?id=@Model[i].ID" class="btn btn-primary btn-sm">修改</a>
+                <a href="/Record/Index?stationID=@Model[i].ID" class="btn btn-default btn-sm">紀錄</a>
+            </p>
+        </div>
 
     }
 
