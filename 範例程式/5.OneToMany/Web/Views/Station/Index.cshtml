@@ -12,7 +12,7 @@
     <div class="form-group">
 
         <input type="text" class="form-control" placeholder="名稱"
-               name="search" id="search" 
+               name="search" id="search"
                value="@ViewBag.Search">
     </div>
 
@@ -29,6 +29,17 @@
         <a class="list-group-item">
             <h4 class="list-group-item-heading">@Model[i].ObservatoryName</h4>
             <p class="list-group-item-text">@Model[i].LocationAddress</p>
+            @if (Model[i].LastRecordTime == DateTime.MinValue)
+            {
+                <span class="label label-danger">無水位資料</span>
+            }
+            else
+            {
+                <span class="label label-primary">水位：@Model[i].LastRecordWaterLevel</span>
+
+                <small>最後更新時間：@Model[i].LastRecordTime.ToString("yyyy/MM/dd HH:mm")</small>
+            }
+
         </a>
 
     }

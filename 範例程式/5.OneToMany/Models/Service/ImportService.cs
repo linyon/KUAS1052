@@ -15,12 +15,7 @@ namespace YC.Service
         public List<Station> FindStations(string xmlPath)
         {
             List<Station> stations = new List<Station>();
-
-
-
             var xml = XElement.Load(xmlPath);
-
-
             XNamespace gml = @"http://www.opengis.net/gml/3.2";
             XNamespace twed = @"http://twed.wra.gov.tw/twedml/opendata";
             var stationsNode = xml.Descendants(twed + "RiverStageObservatoryProfile").ToList();
@@ -49,76 +44,20 @@ namespace YC.Service
             return stations;
 
         }
-
-        public List<Record> FindRecordsFromJsonUrl()
+        public List<Record> CreateRecordsFromJson()
         {
+            var URL = @"http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=json";
             List<Record> result = new List<Record>();
 
-            var stationdD = new YC.Repository.StationRepository();
+            var stationDb = new YC.Repository.StationRepository();
             var recordDb = new YC.Repository.RecordRepository();
-
-
-
-
-            var URL = @"http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=json";
             var jsonString = "";
             using (var webClient = new System.Net.WebClient())
             {
                 jsonString = webClient.DownloadString(URL);
             }
 
-            var stations = stationdD.FindAllStations()
-                .ToDictionary(x => x.ID, x => x);
-            var json = JsonConvert.DeserializeObject<JObject>(jsonString);
-            var jsonDatas = json.Property("RealtimeWaterLevel_OPENDATA").Values().ToList();
-            jsonDatas.ForEach(item =>
-            {
-                var recordObj = item as JObject;
-                var StationIdentifier = recordObj.Property("StationIdentifier").Value.ToString().Trim();
-                if (!stations.ContainsKey(StationIdentifier))
-                {
-                    return;
-                }
-                var station = stations[StationIdentifier];
-                var RecordTime = recordObj.Property("RecordTime").Value.ToString().Trim();
-                var WaterLevel = recordObj.Property("WaterLevel").Value.ToString().Trim();
-                var recordTime = DateTime.Parse(RecordTime);
-                var waterLevel = double.Parse(WaterLevel);
-
-                Record newRecord = new Record();
-                newRecord.CreateTime = DateTime.Now;
-                newRecord.StationID = station.ID;
-                newRecord.RecordTime = recordTime;
-                newRecord.WaterLevel = waterLevel;
-                var isExist = recordDb.IsExist(newRecord);
-                if (!isExist)
-                {
-                    station.LastRecordTime = newRecord.RecordTime;
-                    station.LastRecordWaterLevel = newRecord.WaterLevel;
-                    newRecord.Station = station;
-                    result.Add(newRecord);
-                }
-            });
-            return result; 
-        }
-        public List<Record> CreateRecordsFromJsonUrl()
-        {
-            List<Record> result = new List<Record>();
-
-            var stationdD = new YC.Repository.StationRepository();
-            var recordDb = new YC.Repository.RecordRepository();
-
-
-
-
-            var URL = @"http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=json";
-            var jsonString = "";
-            using (var webClient = new System.Net.WebClient())
-            {
-                jsonString = webClient.DownloadString(URL);
-            }
-
-            var stations = stationdD.FindAllStations()
+            var stations = stationDb.FindAllStations()
                 .ToDictionary(x => x.ID, x => x);
             var json = JsonConvert.DeserializeObject<JObject>(jsonString);
             var jsonDatas = json.Property("RealtimeWaterLevel_OPENDATA").Values().ToList();
@@ -143,16 +82,19 @@ namespace YC.Service
                 newRecord.StationID = station.ID;
                 newRecord.RecordTime = recordTime;
                 newRecord.WaterLevel = waterLevel;
+                newRecord.Station = station;
+                //判斷是否已經存在此筆紀錄，不存在時存檔Record並更新Station
                 var isExist = recordDb.IsExist(newRecord);
                 if (!isExist)
                 {
                     station.LastRecordTime = newRecord.RecordTime;
                     station.LastRecordWaterLevel = newRecord.WaterLevel;
-                    newRecord.Station = station;
+                    stationDb.UpdateLastRecord(station);
                     result.Add(newRecord);
+                    
                 }
             });
-
+            recordDb.Create(result);
             return result;
         }
 

@@ -46,24 +46,8 @@ namespace YC
         private static void createRecord()
         {
             Service.ImportService import = new Service.ImportService();
-            var records = import.FindRecordsFromJsonUrl();
-            Repository.RecordRepository db = new Repository.RecordRepository();
+            var records = import.CreateRecordsFromJson();
 
-            db.Create(records);
-
-            Repository.StationRepository  stationDb = new Repository.StationRepository();
-
-            records.ForEach(x =>
-            {
-                var station = x.Station;
-                var list = new List<Station>();
-                list.Add(station);
-
-
-                stationDb.Create(new List<Station> { station });
-
-
-            });
 
         }
     }
